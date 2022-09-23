@@ -33,6 +33,9 @@ export class Movie extends CoreEntity {
     @Column({default: 0})
     status: number          // 1, 2, 3, 4
 
+    @Column({default: 0})
+    rating: number          // 1, 2, 3, 4
+
     @ManyToOne(() => User, user => user.movies, {
         onDelete: 'CASCADE'
     })

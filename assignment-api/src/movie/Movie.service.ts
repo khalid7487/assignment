@@ -1,57 +1,96 @@
 import { validate } from "class-validator"
+import path from "path";
+import { ILike } from "typeorm";
+import { RemoveSpecialCharacterFromString } from "../commons/Utils";
+import { Movie } from "./Movie.entity";
 
 
 
 export const AddMovie = async (req, res) => {
+
     // Validate date
     let errors: any = {}
-    console.log("test" ,  res.locals.roles, "response id ");
 
-    let { name, category, title, description,video_link  } = req.body;
-    
-    if(!res.locals.roles.includes('ADMIN')){
+    let { name, category, title, description } = req.body;
+
+    if (!res.locals.roles.includes('ADMIN')) {
         res.status(400).json({ message: 'You are not allow to post movie.' });
     }
 
+    const titleForFolderName = RemoveSpecialCharacterFromString(name)
 
 
-    const movie ={}
-     //validation
-     errors = await validate(movie)
-     if (errors.length > 0) return res.status(400).json({ errors })
+    let video_link_fileName = "";
 
-    // let vehicle = req.body
+    if (req.files) {
+        let { video_link } = req.files;
 
-    // const {
-    //     project_name,
-    //     project_title,
-    //     project_description,
-    //     userId
-    // } = vehicle
+        if (video_link) {
+            video_link_fileName = `${res.locals.user.phone}/movies/${titleForFolderName}${path.extname(video_link.name)}`;
+            video_link.mv(`./uploads/${video_link_fileName}`);
+        }
+    }
 
-    // const userInfo = await User.findOne({ id: userId })
+    try {
+        const movie = new Movie({
+            name,
+            category,
+            title,
+            description,
+            video_link: video_link_fileName
+        });
 
-    // if (!userInfo) {
-    //     return res.status(404).json({ message: 'Supervisor does not exists' })
-    // }
+        //validation
+        errors = await validate(movie)
+        if (errors.length > 0) return res.status(400).json({ errors })
 
-    // try {
+        await movie.save()
 
-    //     //create projects
-    //     const projects = new Project({
-    //         project_name,
-    //         project_title,
-    //         project_description,
-    //         user: userId,
-    //     })
+        return res.status(201).json(movie);
 
-    //     await projects.save()
-
-    //     return res.status(201).json(projects);
-
-    // } catch (err) {
-    //     console.log(err)
-    //     return res.status(500).json(err)
-    // }
+    } catch (err) {
+        return res.status(500).json(err)
+    }
 
 }
+
+export const GetAllMovies = async (req, res) => {
+
+    try {
+        const { name } = req.body;
+
+        let filter = [];
+
+        if (name) filter = [...filter,
+        {
+            name: ILike(`%${name}%`)
+        }]
+
+        const limit = req.body.limit || 10
+        const page = req.body.page || 1;
+        const offset = (page - 1) * limit;
+
+        let [result, total] = await Movie.findAndCount({
+            where: filter,
+            order: {
+                id: "DESC"
+            },
+            skip: offset,
+            take: limit
+        });
+
+        const data = {
+            data: result,
+            count: total,
+            totalPage: Math.ceil(total / limit),
+            limit: limit,
+            page: page
+        }
+
+        return res.status(200).json(data);
+
+    } catch (err) {
+        return res.status(500).json({ error: 'Something went wrong' })
+    }
+}
+
