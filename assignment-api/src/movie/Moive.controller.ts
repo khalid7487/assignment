@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import auth from "../middleware/auth";
-import { AddMovie, GetAllMovies } from "./Movie.service";
+import { AddMovie, DeleteMovieById, GetAllMovies, GetMovieById, UpdateMovies } from "./Movie.service";
 
 
 
@@ -19,8 +19,20 @@ router.get('/get-all', auth, async (req: Request, res: Response) => {
 
 
 //get one by id
-router.get('/get/:movieId', auth, async (req:Request, res: Response) => {
-    
-} )
+router.get('/get/:movieId', auth, async (req: Request, res: Response) => {
+    await GetMovieById(req, res)
+})
+
+//delete by id
+router.delete('/delete/:movieId', auth, async (req: Request, res: Response) => {
+    await DeleteMovieById(req, res);
+})
+
+
+//update movie
+router.put('/update-movie/:movieId', auth, async (req: any, res: Response) => {
+    await UpdateMovies(req, res);
+})
+
 
 export default router;
