@@ -72,16 +72,5 @@ export const USER: any = [
                 "link": "/me/user-profile"
             }
         ]
-    },
-    {
-        title: "Project Management",
-        hasSubMenu: true,
-        "icon": <MdWork className="text-success"/>,
-        submenus: [
-            {
-                "title": "All Projects",
-                "link": "/me/all-open-project"
-            }
-        ]
     }
 ]
