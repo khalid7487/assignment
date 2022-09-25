@@ -18,7 +18,7 @@
 
 **API_BASE_URL=http://localhost:7005**
 
-**1. You need to Adds Roles 2times (SUPERVISOR And MEMBER ) using api postman**  POST [http://API_BASE_URL/api/v1/auth/roles](http://API_BASE_URL/api/v1/auth/roles) 
+**1. You need to Adds Roles 2times (ADMIN And MEMBER ) using api postman**  POST [http://API_BASE_URL/api/v1/auth/roles](http://API_BASE_URL/api/v1/auth/roles) 
 
 ```
 Content-Type: application/json
@@ -30,9 +30,9 @@ Request
 ```json
 {
       "id": 1, 
-      "name": "SUPERVISOR",
-      "code": "SUPERVISOR",
-      "description": "SUPERVISOR"
+      "name": "ADMIN",
+      "code": "ADMIN",
+      "description": "ADMIN"
 }
 ```
 
@@ -41,9 +41,9 @@ Response
 ```json
 {
     "id": 2,
-    "name": "SUPERVISOR",
-    "code": "SUPERVISOR",
-    "description": "SUPERVISOR",
+    "name": "ADMIN",
+    "code": "ADMIN",
+    "description": "ADMIN",
     "actions": "CRUDV",
     "created_by": null,
     "updated_by": null,

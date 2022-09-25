@@ -4,7 +4,7 @@ import React from "react";
 
 export const GetRoleWiseMenus = async (roles: any) => {
 
-    if (roles?.includes("SUPERVISOR")) {
+    if (roles?.includes("ADMIN")) {
         return AdminMenus;
     }else if (roles?.includes("MEMBER")) {
         return USER;
@@ -34,7 +34,7 @@ export const AdminMenus: any = [
                 "link": "/me/users"
             },
             {
-                "title": "Supervisor Profile",
+                "title": "ADMIN Profile",
                 "link": "/me/user-profile"
             },
             {
@@ -48,26 +48,8 @@ export const AdminMenus: any = [
                 ]
             },
         ]
-    },
-    {
-        title: "Project Management",
-        hasSubMenu: true,
-        "icon": <MdWork className="text-success"/>,
-        submenus: [
-            {
-                "title": "Add Project",
-                "link": "/me/add-project"
-            },
-            {
-                "title": "All Projects",
-                "link": "/me/projects"
-            },
-            {
-                "title": "Enrollment",
-                "link": "/me/enrollments"
-            }
-        ]
     }
+
 
 ]
 

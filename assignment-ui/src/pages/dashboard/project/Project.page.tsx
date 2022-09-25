@@ -71,7 +71,7 @@ export default function ProjectPage({ }: Props): ReactElement {
 
         (async () => {
 
-            if (getLoggedUserRoles()?.includes('SUPERVISOR')) {
+            if (getLoggedUserRoles()?.includes('ADMIN')) {
                 filterQueries['userId'] = ''
                 await loadData(filterQueries);
             } else {

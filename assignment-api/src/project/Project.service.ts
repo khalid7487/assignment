@@ -45,7 +45,7 @@ export const AddProject = async (req, res) => {
     const userInfo = await User.findOne({ id: userId })
 
     if (!userInfo) {
-        return res.status(404).json({ message: 'Supervisor does not exists' })
+        return res.status(404).json({ message: 'ADMIN does not exists' })
     }
 
     try {

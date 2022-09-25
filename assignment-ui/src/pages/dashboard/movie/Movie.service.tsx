@@ -14,8 +14,8 @@ export const addMovie = (payload:any) => {
 };
 
 
-export const getVehicleByUserId = (id:any) => {
-    return get(`/vehicle/get-user-vehicle/${id}`);
+export const getMovieByIds = (id:any) => {
+    return get(`/movie/get/${id}`);
 };
 
 export const getVehicleById = (id:any) => {
@@ -36,7 +36,7 @@ export const update = (formData: any) => {
 
 export const deleteItemById = (id:any) => {
     
-    return del(`/project/delete/${id}`);
+    return del(`/movie/delete/${id}`);
 };
 
 export const download = (payload:any) => {
@@ -50,8 +50,8 @@ export const addProject = (payload:any) => {
 
 
 
-export const updateVehicle = ( id:any, payload:any) => {
-    return putFile(`/project/update/${id}`, payload);
+export const updateMovie = ( id:any, payload:any) => {
+    return putFile(`/movie/update-movie/${id}`, payload);
 };
 
 export const UpdateVehicleStatus = (id:any, payload:any) => {
