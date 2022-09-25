@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
-import React from "react";
+
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { BiRightArrowCircle } from "react-icons/all";
 import userPops from "../../icons/car.png";
@@ -342,20 +342,6 @@ export default function DashboardContainerPage({ }: Props): ReactElement {
                             </Card>
                         </Col>
 
-                        {/* <Col className="mb-3">
-                            <Card style={{ background: '#39CCCC' }}>
-                                <Card.Body>
-                                    <div className="d-flex justify-content-between">
-                                        <div className="text-white">
-                                            <h3>5</h3>
-                                            <p>Prvious day  Orders</p>
-                                        </div>
-                                        <img src={userPops} style={{ width: '50px', height: '50px' }} alt="users-img" />
-                                    </div>
-                                </Card.Body>
-                                <Card.Footer className="text-white">More info <BiRightArrowCircle /></Card.Footer>
-                            </Card>
-                        </Col> */}
 
                         <Col sm={12} className="mb-3">
                             <Card style={{ background: '#F39C12' }}>

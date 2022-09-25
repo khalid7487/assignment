@@ -1,7 +1,7 @@
 import jwt_decode from "jwt-decode";
 
 
-const apiBaseUrl = process.env.REACT_APP_PUBLIC_API_URL ? process.env.REACT_APP_PUBLIC_API_URL : "http://localhost:7000"
+const apiBaseUrl = process.env.REACT_APP_PUBLIC_API_URL ? process.env.REACT_APP_PUBLIC_API_URL : "http://localhost:7005/api/v1"
 
 export const request = (
     url: string,

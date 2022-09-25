@@ -3,6 +3,8 @@ import { Button, Card, Col, Form, FormControl, InputGroup, Pagination, Row } fro
 import { gets } from "./DefaultHome.service";
 import { useHistory } from "react-router-dom";
 
+import Movie from "../pages/dashboard/movie/Movie.page"
+
 import background from "../icons/background.jpg";
 import car from "../icons/car.png";
 import defaultImage from "../icons/car.png";
@@ -92,16 +94,24 @@ export default function DefaultHome({ }: Props): ReactElement {
         <div>
 
             <Row style={{ marginRight: "-10px" }}>
-                <img className="background-img" src={background} alt="alt" />
+                {/* <img className="background-img" src={background} alt="alt" />
                 <div className="top-left text-light ">
                     <h2>1. Please Register </h2>
                     <h2>2. Login </h2>
                     <h2>3. Go Dashboard Using profile picture Click.</h2>
                     <h2>4. Hope you will find all my assign task.</h2>
+                </div> */}
+
+                <div className="movie-list-main-sections">
+
+                    <Movie />
+
                 </div>
+
+
             </Row>
 
-         
+
         </div>
     )
 };

@@ -1,0 +1,54 @@
+.add-movie-modal-sections{
+
+
+}
+
+.movie-modal-main-sections{
+
+    .add-category{
+        label{
+            width: 120px;
+        }
+        select{
+            width: 300px;
+            height: 35px;
+        }
+    }
+
+    .name{
+        label{
+            width: 120px;
+        }
+        input{
+            width: 300px;
+        }
+    }
+
+    .title{
+        label{
+            width: 120px;
+        }
+        input{
+            width: 300px;
+        }
+    }
+    .video-link{
+        label{
+            width: 120px;
+        }
+        input{
+            width: 300px;
+        }
+    }
+
+    .description{
+        display: flex;
+        align-items: center;
+        label{
+            width: 120px;
+        }
+        textarea{
+            width: 300px;
+        }
+    }
+}

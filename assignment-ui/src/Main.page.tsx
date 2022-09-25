@@ -1,5 +1,5 @@
-import React, {ReactElement} from 'react'
-import {useHistory} from 'react-router-dom'
+import React, { ReactElement } from 'react'
+import { useHistory } from 'react-router-dom'
 import DefaultHome from './pages/DefaultHome.page'
 import TopNav from './common/TopNav.page'
 
@@ -11,7 +11,7 @@ interface Props {
 
 }
 
-export default function Main({}: Props): ReactElement {
+export default function Main({ }: Props): ReactElement {
     const history = useHistory()
 
     const onOpenClick = async () => {
@@ -21,13 +21,13 @@ export default function Main({}: Props): ReactElement {
     return (
         <div className="main-section">
 
-            <TopNav/>
+            <TopNav />
 
-            <DefaultHome/>
+            <DefaultHome />
 
-            <Footer/>
+            {/* <Footer/> */}
 
-            <BottomNav/>
+            <BottomNav />
 
         </div>
     )
