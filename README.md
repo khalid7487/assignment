@@ -53,6 +53,31 @@ Response
 ```
 
 
+```json
+{
+      "id": 1, 
+      "name": "MEMBER",
+      "code": "MEMBER",
+      "description": "MEMBER"
+}
+```
+
+Response
+
+```json
+{
+    "id": 2,
+    "name": "MEMBER",
+    "code": "MEMBER",
+    "description": "MEMBER",
+    "actions": "CRUDV",
+    "created_by": null,
+    "updated_by": null,
+    "create_at": "2022-05-22T17:45:05.798Z",
+    "updated_at": "2022-05-22T17:45:05.798Z"
+}
+```
+
 
 
 
